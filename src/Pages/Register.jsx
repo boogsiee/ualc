@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 
 const Register = () => {
@@ -14,22 +14,27 @@ const Register = () => {
         date_of_registration: '',
         username: '',
         password: '',
-        role: 'student' // default role
+        role: 'cadet'
     });
 
+    const navigate = useNavigate(); 
+
+    // Handle input changes for the form fields
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
+        setFormData((prevData) => ({
+            ...prevData,
             [name]: value
-        });
+        }));
     };
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const qrCode = formData.qr_code || "GeneratedQRCode"; // Placeholder logic for QR code generation
-        const currentDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+        // Generate QR code if not provided
+        const qrCode = formData.qr_code || `${formData.student_id}-${formData.username}-${Date.now()}`; 
+        const currentDate = new Date().toISOString().split('T')[0]; // Format date as YYYY-MM-DD
 
         const submissionData = {
             ...formData,
@@ -40,7 +45,7 @@ const Register = () => {
         console.log("Submission Data:", submissionData); // Log the data to be sent
 
         try {
-            const response = await fetch("/students", {
+            const response = await fetch("http://localhost:3000/students", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -50,9 +55,11 @@ const Register = () => {
 
             const data = await response.json();
             if (response.ok) {
-                alert(data.message);
+                alert(data.message); 
+                
+                navigate("/"); // Redirect to the login page
             } else {
-                console.error("Error Response:", data); // Log the error response
+                console.error("Error Response:", data); 
                 alert(data.error || "An unknown error occurred.");
             }
         } catch (error) {
@@ -105,7 +112,6 @@ const Register = () => {
                         />
                     </div>
                     <br />
-
                     <div className="inpt">
                         <h4>Email</h4>
                         <input
@@ -129,7 +135,6 @@ const Register = () => {
                         />
                     </div>
                     <br />
-
                     <div className="inpt">
                         <h4>ROTC Unit</h4>
                         <input
@@ -142,7 +147,6 @@ const Register = () => {
                         />
                     </div>
                     <br />
-
                     <div className="inpt">
                         <h4>Username</h4>
                         <input
@@ -154,7 +158,6 @@ const Register = () => {
                             required
                         />
                     </div>
-
                     <div className="inpt">
                         <h4>Password</h4>
                         <input
@@ -167,7 +170,6 @@ const Register = () => {
                         />
                     </div>
                     <br />
-
                     <div className="log-btn-cont">
                         <button type="submit" className="log-btn">
                             <h3>Register</h3>
