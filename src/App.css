@@ -101,3 +101,49 @@ a{
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   padding:25px;
 }
+.header{
+  display: flex;
+  flex-direction: row;
+  background-color: #9a0a0a;
+}
+.header-logo{
+  height: 90px;
+}
+.body{
+  display:flex;
+}
+.header-title{
+  padding:15px 0 0 5px;
+  font-weight: 900;
+  color:aliceblue;
+  
+}
+.sidebar{
+  background: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  width: 220px;
+  height:609px;
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  gap: 20px;
+}
+.sideop>img{
+margin-right: 20px;
+}
+.sideop{
+  display:flex;
+  padding: 15px;
+  background: aliceblue;
+  height:45px;
+  width: 180px;
+  font-weight: 600;
+}
+.sideop:hover{
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  cursor: pointer;
+}
+.main-content{
+  padding:25px;
+  width: 100%;
+}

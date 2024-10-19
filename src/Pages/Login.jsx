@@ -97,9 +97,11 @@ const Login = () => {
             </div>
             <br />
             
-            <div className='log-btn-cont'>
-              <button className='log-btn' type="submit"><h3>LOG IN</h3></button>
-            </div>
+            <Link to="/home">
+              <div className='log-btn-cont'>
+                <button className='log-btn' type="submit"><h3>LOG IN</h3></button>
+              </div>
+            </Link>
           </form>
 
           <div className='reg-btn-cont'>

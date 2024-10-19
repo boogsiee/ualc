@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login"; // Updated to a relative path
 import Register from "./Pages/Register"; // Updated to a relative path
-import Home from "./Pages/Home"; // Updated to a relative path
+import Home from "../src/Pages/Home"; // Updated to a relative path
 import Profile from "./Pages/Profile"; // Updated to a relative path
 import Records from "./Pages/Records"; // Updated to a relative path
 import Mailings from "./Pages/Mailings"; // Updated to a relative path
