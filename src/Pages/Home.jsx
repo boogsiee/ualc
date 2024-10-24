@@ -15,10 +15,18 @@ const Home = () => {
             </div>
             <div className='body'>
                 <div className='sidebar'>
-                    <div className='sideop'>
-                        <img width="35" height="35" src="https://img.icons8.com/cotton/64/qr-code--v2.png" alt="qr-code--v2"/>
-                        <p5>Attendance</p5>
-                    </div>
+                    <Link to="/scan">
+                        <div className='sideop'>
+                            <img width="35" height="35" src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/>
+                            <p5>Home</p5>
+                        </div>
+                    </Link>
+                    <Link to="/scan">
+                        <div className='sideop'>
+                            <img width="35" height="35" src="https://img.icons8.com/cotton/64/qr-code--v2.png" alt="qr-code--v2"/>
+                            <p5>Attendance</p5>
+                        </div>
+                    </Link>
                     <div className='sideop'>
                         <img width="35" height="35" src="https://img.icons8.com/ios/50/day-view.png" alt="day-view"/>
                         <p5>Records</p5>

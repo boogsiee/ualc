@@ -7,8 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { TableVirtuoso } from 'react-virtuoso';
-// import axios from './axiosConfig'; // Import your Axios configuration
-
+import axios from './axiosConfig'; 
 const columns = [
   { width: 100, label: 'Student ID', dataKey: 'student_id' },
   { width: 100, label: 'First Name', dataKey: 'first_name' },

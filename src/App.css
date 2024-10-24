@@ -26,7 +26,7 @@ a{
 }
 
 #cta-type1{
-  font-size: 75px;
+  font-size: 55px;
   color: #040B19;
 }
 #cta-type2{
@@ -146,4 +146,28 @@ margin-right: 20px;
 .main-content{
   padding:25px;
   width: 100%;
+}
+
+.generator,
+.scanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height:100%;
+}
+.generator h2,
+.scanner h2 {
+    margin-top: 2rem;
+}
+
+.scanner-div {
+    width: 500px;
+    height: 500px;
+    margin-top: 1rem;
+}
+
+.scanner .back-btn {
+  margin-top: -4rem;
 }
