@@ -7,7 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { TableVirtuoso } from 'react-virtuoso';
-import axios from './axiosConfig'; 
+import axios from 'axios';  // Import axios directly
+
 const columns = [
   { width: 100, label: 'Student ID', dataKey: 'student_id' },
   { width: 100, label: 'First Name', dataKey: 'first_name' },
@@ -16,8 +17,7 @@ const columns = [
   { width: 100, label: 'Contact Number', dataKey: 'contact_number' },
   { width: 100, label: 'ROTC Unit', dataKey: 'rotc_unit' },
   { width: 150, label: 'Date of Registration', dataKey: 'date_of_registration' },
-  { width: 100, label: 'Username', dataKey: 'username' },
-  { width: 100, label: 'Role', dataKey: 'role' }
+  { width: 100, label: 'Username', dataKey: 'username' }
 ];
 
 const VirtuosoTableComponents = {
@@ -66,10 +66,9 @@ export default function Overview() {
   const [rows, setRows] = React.useState([]);
 
   React.useEffect(() => {
-    
-    axios.get('/students') 
+    axios.get('http://localhost:3000/api/students')  // Use the full URL for the endpoint
       .then((response) => {
-        setRows(response.data); 
+        setRows(response.data);  // Sets the data for the table rows
       })
       .catch((error) => {
         console.error("Error fetching student data:", error);

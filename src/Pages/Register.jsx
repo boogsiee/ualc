@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { QRCodeSVG } from 'qrcode.react';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -10,7 +9,6 @@ const Register = () => {
         email: '',
         contact_number: '',
         rotc_unit: '',
-        qr_code: '',
         date_of_registration: '',
         username: '',
         password: '',
@@ -32,20 +30,17 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Generate QR code if not provided
-        const qrCode = formData.qr_code || `${formData.student_id}-${formData.username}-${Date.now()}`; 
         const currentDate = new Date().toISOString().split('T')[0]; // Format date as YYYY-MM-DD
 
         const submissionData = {
             ...formData,
-            qr_code: qrCode,
             date_of_registration: currentDate
         };
 
         console.log("Submission Data:", submissionData); // Log the data to be sent
 
         try {
-            const response = await fetch("http://localhost:3000/students", {
+            const response = await fetch("http://localhost:3000/api/students", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -176,12 +171,6 @@ const Register = () => {
                         </button>
                     </div>
                 </form>
-                {formData.qr_code && (
-                    <div>
-                        <h4>Your QR Code:</h4>
-                        <QRCodeSVG value={formData.qr_code} />
-                    </div>
-                )}
             </div>
         </div>
     );

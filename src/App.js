@@ -7,7 +7,7 @@ import Home from "../src/Pages/Home";
 import Profile from "./Pages/Profile"; 
 import Records from "./Pages/Records"; 
 import Mailings from "./Pages/Mailings"; 
-import Scan from "./Pages/Scan";
+import Scan from "./Pages/Scanner";
 import "./App.css";
 
 function App() {
